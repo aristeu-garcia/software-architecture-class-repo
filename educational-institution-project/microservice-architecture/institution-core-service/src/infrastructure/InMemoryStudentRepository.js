@@ -1,4 +1,4 @@
-import { StudentRepository } from "../repositories/StudentRepository.js";
+import { StudentRepository } from "../domain/student/repositories/StudentRepository.js";
 
 export class InMemoryStudentRepository extends StudentRepository {
   constructor() {
@@ -11,6 +11,6 @@ export class InMemoryStudentRepository extends StudentRepository {
   }
 
   async findByEmail(email) {
-    return this.students.find(s => s.email === email);
+    return this.students.find((s) => s.email === email);
   }
 }

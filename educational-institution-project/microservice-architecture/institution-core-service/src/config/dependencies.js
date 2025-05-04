@@ -1,9 +1,9 @@
-import { InMemoryStudentRepository } from "../infrastructure/repositories/InMemoryStudentRepository.js";
-import { CreateStudent } from "../application/student/use-cases/CreateStudent.js";
-import { CreateStudentController } from "../infrastructure/web/controllers/CreateStudentController.js";
+import { InMemoryStudentRepository } from "../infrastructure/InMemoryStudentRepository.js";
+import { CreateStudentUseCase } from "../domain/student/use-case/CreateStudent.js";
+import { CreateStudentController } from "../controllers/CreateStudentController.js";
 
 const studentRepository = new InMemoryStudentRepository();
-const createStudentUseCase = new CreateStudent(studentRepository);
+const createStudentUseCase = new CreateStudentUseCase(studentRepository);
 const createStudentController = new CreateStudentController(
   createStudentUseCase
 );
