@@ -11,7 +11,9 @@ export class CreateTeacherUseCase {
       throw new Error('Teacher with this email already exists');
     }
     
-    const teacher = new Teacher({ id: Math.random().toString(), name, email });
+    const id = Math.random().toString().split(".")[1];
+    const teacher = new Teacher({ id, name, email });
+
     await this.teacherRepository.save(teacher);
     console.log("[LOGGER] Teacher created successfully");
     return teacher;
