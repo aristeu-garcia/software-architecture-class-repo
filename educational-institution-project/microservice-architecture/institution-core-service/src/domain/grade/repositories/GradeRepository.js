@@ -1,9 +1,9 @@
-export class StudentRepository {
-  async save(student) {
+export class GradeRepository {
+  async save(grade) {
     throw new Error('Method not implemented');
   }
 
-  async findByEmail(email) {
+  async findByStudent(student) {
     throw new Error('Method not implemented');
   }
 }

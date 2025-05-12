@@ -9,4 +9,4 @@ const createSubjectController = new CreateSubjectController(
   createSubjectUseCase
 );
 
-export { createSubjectController };
+export { createSubjectController, subjectRepository };
