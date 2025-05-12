@@ -1,14 +1,21 @@
 class LogEntry {
+
   constructor({ level, message, timestamp = new Date() }) {
-    if (!level || !message) throw new Error('level and message are required');
+    console.log('level', level, 'message', message, 'timestamp', timestamp);
+    if (!level || !message) throw new Error("level and message are required");
 
     this.level = level.toUpperCase();
     this.message = message;
     this.timestamp = timestamp;
+
   }
 
   format() {
-    return `[${this.timestamp.toISOString()}] [${this.level}] ${this.message}`;
+    return `[${this.timestamp}] [${this.level}] ${JSON.stringify(
+      this.message,
+      null,
+      2
+    )}`;
   }
 }
 

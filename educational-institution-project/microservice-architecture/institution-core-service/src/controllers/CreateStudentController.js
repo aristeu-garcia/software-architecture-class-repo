@@ -1,3 +1,5 @@
+import { logger } from "../config/dependencies.js";
+
 export class CreateStudentController {
   constructor(createStudentUseCase) {
     this.createStudentUseCase = createStudentUseCase;
@@ -7,9 +9,10 @@ export class CreateStudentController {
     try {
 
       const student = await this.createStudentUseCase.execute(request.body);
+      logger.info(`Student created: ${JSON.stringify(student)}`);
       return response.status(201).json(student);
     } catch (error) {
-      console.log(error);
+      logger.error(error);
       return response.status(400).json({ error: error.message });
     }
   }

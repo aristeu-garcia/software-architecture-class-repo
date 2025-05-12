@@ -13,8 +13,11 @@ class WebSocketAdapter {
     wss.on("connection", (ws) => {
       ws.on("message", async (msg) => {
         try {
-          const data = JSON.parse(msg.toString());
-          await this.logInputPort.handleLog(data);
+          const parsedMessage = JSON.parse(msg);
+          await this.logInputPort.handleLog({
+            message: parsedMessage.message,
+            level: parsedMessage.level,
+          });
         } catch (err) {
           console.error("❌ Invalid log message:", err.message);
         }
