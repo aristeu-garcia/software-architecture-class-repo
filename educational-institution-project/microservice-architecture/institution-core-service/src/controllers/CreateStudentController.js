@@ -11,7 +11,7 @@ export class CreateStudentController {
       logger.info(`Student created: ${JSON.stringify(student)}`);
       return response.status(201).json(student);
     } catch (error) {
-      logger.error(error);
+      logger.error(`An error occurred: ${error.message}`);
       return response.status(400).json({ error: error.message });
     }
   }

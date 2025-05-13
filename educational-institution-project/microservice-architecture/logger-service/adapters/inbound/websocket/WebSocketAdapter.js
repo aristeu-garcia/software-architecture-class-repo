@@ -12,9 +12,7 @@ class WebSocketAdapter {
 
     wss.on("connection", (ws) => {
       ws.on("message", async (msg) => {
-        console.log("message", msg);
         try {
-          console.log("aaaaaaaaaaa:", msg);
           const parsedMessage = JSON.parse(msg);
           await this.logInputPort.handleLog({
             message: parsedMessage.message,
