@@ -5,18 +5,21 @@ class WebSocketAdapter {
     this.logInputPort = logInputPort;
   }
 
-  start(port = 8080) {
+  start(port = 8081) {
     const wss = new WebSocket.Server({ port });
 
     console.log(`🟢 WebSocket Server listening on ws://localhost:${port}`);
 
     wss.on("connection", (ws) => {
       ws.on("message", async (msg) => {
+        console.log("message", msg);
         try {
+          console.log("aaaaaaaaaaa:", msg);
           const parsedMessage = JSON.parse(msg);
           await this.logInputPort.handleLog({
             message: parsedMessage.message,
             level: parsedMessage.level,
+            timestamp: parsedMessage.timestamp,
           });
         } catch (err) {
           console.error("❌ Invalid log message:", err.message);

@@ -1,4 +1,4 @@
-import { logger } from "../config/dependencies.js";
+import { logger } from "../config/loggerDependencies.js";
 
 export class CreateStudentController {
   constructor(createStudentUseCase) {
@@ -7,7 +7,6 @@ export class CreateStudentController {
 
   async handle(request, response) {
     try {
-
       const student = await this.createStudentUseCase.execute(request.body);
       logger.info(`Student created: ${JSON.stringify(student)}`);
       return response.status(201).json(student);
