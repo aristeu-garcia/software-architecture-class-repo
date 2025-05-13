@@ -1,4 +1,4 @@
-export class StudentRepository {
+export class TeacherRepository {
   async save(student) {
     throw new Error('Method not implemented');
   }
@@ -7,4 +7,3 @@ export class StudentRepository {
     throw new Error('Method not implemented');
   }
 }
-  

@@ -10,4 +10,4 @@ const createStudentController = new CreateStudentController(
   createStudentUseCase
 );
 
-export { createStudentController, logger };
+export { createStudentController, studentRepository, logger };
